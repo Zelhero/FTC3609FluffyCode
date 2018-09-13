@@ -63,21 +63,15 @@ public class FluffyAutoDriveByTime_Linear extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwareFluffy         robot   = new HardwareFluffy();   // Use a Pushbot's hardware
+    MovementMethods        move    = new MovementMethods();
     private ElapsedTime     runtime = new ElapsedTime();
 
 
     static final double     FORWARD_SPEED = 0.6;
     static final double     TURN_SPEED    = 0.5;
 
-    private void DriveTime(double Left, double Right, int Time, int Step){
-        robot.leftDrive.setPower(Left);
-        robot.rightDrive.setPower(Right);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < Time)) {
-            telemetry.addData("Path", "Leg",Step,": %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-        }
-    }
+
+
 
 
 
@@ -99,7 +93,7 @@ public class FluffyAutoDriveByTime_Linear extends LinearOpMode {
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
 
-        DriveTime(FORWARD_SPEED, FORWARD_SPEED,6, 1);
+        move.DriveTime(FORWARD_SPEED, FORWARD_SPEED,6, 1);
 
 
 
