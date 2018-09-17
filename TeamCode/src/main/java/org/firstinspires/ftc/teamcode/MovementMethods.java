@@ -9,8 +9,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 public class MovementMethods extends LinearOpMode{
 
 
-    double ServoSpd;
-    double ServoAmt;
+    double ServoSpd = 0.5;
+    double ServoAmt = 0.5;
 
 
 
@@ -28,7 +28,7 @@ public class MovementMethods extends LinearOpMode{
 
 
 
-    public void Drivetrain(double Left, double Right) {
+    public void Drive(double Left, double Right) {
 
         robot.leftDrive.setPower(Left);
         robot.rightDrive.setPower(Right);

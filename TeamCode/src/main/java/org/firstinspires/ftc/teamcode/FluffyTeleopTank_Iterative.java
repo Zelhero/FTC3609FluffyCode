@@ -101,7 +101,7 @@ public class FluffyTeleopTank_Iterative extends OpMode{
 
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
 
-        move.Drivetrain(left, right);
+        move.Drive(left, right);
 
         // Use gamepad left & right Bumpers to open and close the claw
         move.ServoMove(clawOffset, CLAW_SPEED);
