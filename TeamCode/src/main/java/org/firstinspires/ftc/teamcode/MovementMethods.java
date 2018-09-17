@@ -9,8 +9,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 public class MovementMethods extends LinearOpMode{
 
 
-    double ServoSpd;
-    double ServoAmt;
+   // double ServoSpd;
+    //double ServoAmt;
 
 
 
@@ -60,7 +60,7 @@ public class MovementMethods extends LinearOpMode{
         }
     }
 
-
+/*
 
     public void ArmMove(double Up, double Down){
         if (gamepad1.y)
@@ -70,7 +70,7 @@ public class MovementMethods extends LinearOpMode{
         else
             robot.leftArm.setPower(0.0);
     }
-
+*/
 
 
 
