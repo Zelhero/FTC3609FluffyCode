@@ -4,13 +4,14 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.util.Range;
 
 
 public class MovementMethods extends LinearOpMode{
 
 
-    double ServoSpd = 0.5;
-    double ServoAmt = 0.5;
+    // double ServoSpd = 0.5;
+    // double ServoAmt = 0.0;
 
 
 
@@ -32,19 +33,27 @@ public class MovementMethods extends LinearOpMode{
 
         robot.leftDrive.setPower(Left);
         robot.rightDrive.setPower(Right);
+
     }
 
 
 
 
 
-    public void ServoMove(double servoSpd, double servoAmt){
+    public void ServoMove(double ServoSpd, double ServoAmt){
 
         if (gamepad1.right_bumper)
-             servoAmt += servoSpd;
+             ServoAmt += ServoSpd;
         else if (gamepad1.left_bumper)
-            servoAmt -= servoSpd;
+            ServoAmt -= ServoSpd;
+
+        // Move both servos to new position.  Assume servos are mirror image of each other.
+        ServoAmt = Range.clip(ServoAmt, -0.5, 0.5);
+        robot.leftClaw.setPosition(robot.MID_SERVO + ServoAmt);
+        robot.rightClaw.setPosition(robot.MID_SERVO - ServoAmt);
     }
+
+
 
 
 
